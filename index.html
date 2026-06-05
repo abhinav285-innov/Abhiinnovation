@@ -1767,6 +1767,355 @@
   <p class="global-note fade-up">Also serving: <span>New Zealand · Singapore · South Africa · Europe</span></p>
 </section>
 
+
+<!-- WORLD MAP CONSULTATION -->
+<section id="worldmap" style="padding: 0; background: #0a0f1e; border-top: 1px solid rgba(201,168,76,0.08);">
+  <div style="padding: 5rem 5% 4rem; max-width: 1100px; margin: 0 auto;">
+    <div class="fade-up" style="text-align: center; max-width: 580px; margin: 0 auto 2rem;">
+      <p class="section-label">Global Consultations</p>
+      <h2 class="section-heading">Consult from <em>anywhere in the world</em></h2>
+      <p class="section-sub" style="margin: 0 auto;">Click your city on the map below to send a consultation request directly to Prof. Vatsyayana Sharma.</p>
+    </div>
+  </div>
+
+  <!-- Country Filter Pills -->
+  <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center; padding: 0 5% 1.5rem; max-width:1100px; margin:0 auto;">
+    <button class="map-pill active" onclick="filterCountry(this,'all')">All Regions</button>
+    <button class="map-pill" onclick="filterCountry(this,'India')">India</button>
+    <button class="map-pill" onclick="filterCountry(this,'Australia')">Australia</button>
+    <button class="map-pill" onclick="filterCountry(this,'UAE')">UAE</button>
+    <button class="map-pill" onclick="filterCountry(this,'USA')">USA</button>
+    <button class="map-pill" onclick="filterCountry(this,'UK')">UK</button>
+    <button class="map-pill" onclick="filterCountry(this,'Canada')">Canada</button>
+    <button class="map-pill" onclick="filterCountry(this,'New Zealand')">New Zealand</button>
+    <button class="map-pill" onclick="filterCountry(this,'Singapore')">Singapore</button>
+  </div>
+
+  <!-- Map -->
+  <div style="position:relative; max-width:1100px; margin:0 auto; padding: 0 5% 4rem;">
+    <div id="wm-container" style="position:relative;">
+      <svg id="wm-svg" viewBox="0 0 1000 530" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:10px;background:#0d1526;border:1px solid rgba(201,168,76,0.15);">
+        <defs>
+          <radialGradient id="wmGrad" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#1a2540"/>
+            <stop offset="100%" stop-color="#080e1b"/>
+          </radialGradient>
+        </defs>
+        <rect width="1000" height="530" fill="url(#wmGrad)"/>
+        <!-- Grid -->
+        <g stroke="rgba(201,168,76,0.06)" stroke-width="0.5">
+          <line x1="0" y1="132" x2="1000" y2="132"/><line x1="0" y1="265" x2="1000" y2="265"/>
+          <line x1="0" y1="398" x2="1000" y2="398"/>
+          <line x1="167" y1="0" x2="167" y2="530"/><line x1="333" y1="0" x2="333" y2="530"/>
+          <line x1="500" y1="0" x2="500" y2="530"/><line x1="667" y1="0" x2="667" y2="530"/>
+          <line x1="833" y1="0" x2="833" y2="530"/>
+        </g>
+        <!-- Equator -->
+        <line x1="0" y1="280" x2="1000" y2="280" stroke="rgba(201,168,76,0.1)" stroke-width="1" stroke-dasharray="8,6"/>
+
+        <!-- Continents -->
+        <!-- North America -->
+        <path d="M88,65 L183,60 L206,83 L222,111 L233,144 L222,177 L205,205 L188,222 L172,238 L154,266 L142,244 L133,222 L122,194 L105,172 L88,149 L77,122 L83,94 Z" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+        <path d="M172,238 L188,244 L194,260 L182,277 L172,271 L163,255 Z" fill="#192238" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/>
+        <!-- South America -->
+        <path d="M183,282 L216,271 L238,282 L250,316 L255,355 L249,394 L233,427 L210,443 L193,432 L182,404 L170,371 L165,337 L172,304 Z" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+        <!-- Greenland -->
+        <path d="M200,22 L240,18 L255,30 L250,50 L235,58 L215,54 L200,40 Z" fill="#192238" stroke="rgba(201,168,76,0.15)" stroke-width="0.8"/>
+        <!-- Europe -->
+        <path d="M432,60 L477,55 L494,66 L500,83 L488,100 L471,105 L460,122 L449,116 L437,105 L426,88 L426,72 Z" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+        <path d="M460,54 L471,38 L482,44 L477,60 Z" fill="#192238" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/>
+        <!-- UK -->
+        <path d="M413,66 L424,60 L428,72 L421,83 L413,77 Z" fill="#192238" stroke="rgba(201,168,76,0.28)" stroke-width="1"/>
+        <!-- Iceland -->
+        <path d="M352,40 L372,35 L378,48 L368,55 L352,50 Z" fill="#192238" stroke="rgba(201,168,76,0.15)" stroke-width="0.8"/>
+        <!-- Africa -->
+        <path d="M443,127 L499,121 L521,138 L527,171 L521,205 L510,239 L499,271 L482,299 L465,310 L448,299 L437,271 L425,238 L423,204 L429,171 L434,143 Z" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+        <!-- Middle East -->
+        <path d="M510,110 L550,105 L567,122 L572,144 L560,160 L543,166 L526,160 L515,144 Z" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+        <!-- India -->
+        <path d="M621,133 L655,127 L672,144 L678,172 L666,194 L648,210 L630,205 L619,188 L610,163 Z" fill="#192238" stroke="rgba(201,168,76,0.28)" stroke-width="1"/>
+        <!-- Asia -->
+        <path d="M566,61 L666,50 L738,55 L788,66 L810,88 L800,116 L778,127 L740,133 L710,138 L677,133 L655,127 L621,130 L593,127 L570,116 L558,94 Z" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+        <!-- SE Asia -->
+        <path d="M710,138 L744,133 L760,149 L755,171 L738,177 L721,172 L710,160 Z" fill="#192238" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/>
+        <!-- Japan -->
+        <path d="M798,94 L810,86 L818,99 L809,108 L798,102 Z" fill="#192238" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/>
+        <!-- Australia -->
+        <path d="M754,315 L822,303 L858,315 L876,338 L870,365 L854,387 L827,397 L799,391 L776,374 L756,352 L748,330 Z" fill="#192238" stroke="rgba(201,168,76,0.28)" stroke-width="1"/>
+        <!-- New Zealand -->
+        <path d="M886,369 L900,360 L907,374 L899,388 L887,382 Z" fill="#192238" stroke="rgba(201,168,76,0.28)" stroke-width="1"/>
+        <!-- Sri Lanka -->
+        <circle cx="651" cy="219" r="5" fill="#192238" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/>
+        <!-- Singapore -->
+        <circle cx="744" cy="204" r="4" fill="#192238" stroke="rgba(201,168,76,0.22)" stroke-width="0.8"/>
+
+        <!-- Connection lines -->
+        <g id="wm-lines"></g>
+        <!-- City markers -->
+        <g id="wm-cities"></g>
+
+        <!-- Jaipur rotating ring -->
+        <circle cx="641" cy="168" r="14" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1.2" stroke-dasharray="4,4">
+          <animateTransform attributeName="transform" type="rotate" from="0 641 168" to="360 641 168" dur="15s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="641" cy="168" r="20" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.8" stroke-dasharray="2,6">
+          <animateTransform attributeName="transform" type="rotate" from="360 641 168" to="0 641 168" dur="30s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+
+      <!-- Tooltip -->
+      <div id="wm-tooltip" style="position:absolute;background:#111827;border:1px solid rgba(201,168,76,0.4);color:#e8e2d6;border-radius:8px;padding:12px 16px;font-size:13px;pointer-events:none;opacity:0;transition:opacity 0.2s;min-width:170px;box-shadow:0 8px 32px rgba(0,0,0,0.6);z-index:10;">
+        <div id="wm-tt-city" style="font-size:16px;font-weight:600;color:#e8c97a;margin-bottom:3px;font-family:'Cormorant Garamond',Georgia,serif;"></div>
+        <div id="wm-tt-country" style="font-size:10px;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;"></div>
+        <button onclick="openWmModal()" style="background:#c9a84c;color:#0a0f1e;border:none;padding:7px 14px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;width:100%;letter-spacing:0.06em;text-transform:uppercase;">Request Consultation ✦</button>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div style="display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap;justify-content:center;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:0.75rem;color:#8a8070;">
+        <svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1.5"/><circle cx="7" cy="7" r="3" fill="#c9a84c"/></svg>
+        Jaipur HQ (Prof. Vatsyayana Sharma)
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:0.75rem;color:#8a8070;">
+        <svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="#c9a84c"/></svg>
+        Click any city to request a consultation
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:0.75rem;color:#8a8070;">
+        <svg width="20" height="6"><line x1="0" y1="3" x2="20" y2="3" stroke="rgba(201,168,76,0.4)" stroke-width="1" stroke-dasharray="3,3"/></svg>
+        Online consultation route
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- World Map Modal -->
+<div id="wm-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#111827;border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:2rem;width:90%;max-width:460px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.7);">
+    <button onclick="closeWmModal()" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#8a8070;font-size:24px;cursor:pointer;line-height:1;">×</button>
+    <div id="wm-modal-form">
+      <p style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#c9a84c;margin-bottom:0.4rem;">Online Consultation</p>
+      <h3 id="wm-modal-title" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:300;color:#fff;margin-bottom:0.2rem;">Consultation Request</h3>
+      <p id="wm-modal-sub" style="font-size:0.78rem;color:#8a8070;margin-bottom:1.4rem;"></p>
+
+      <label style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#8a8070;display:block;margin-bottom:0.3rem;">Your Name</label>
+      <input id="wm-name" type="text" placeholder="Full name" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:9px 11px;color:#e8e2d6;font-size:13px;outline:none;margin-bottom:0.8rem;">
+
+      <label style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#8a8070;display:block;margin-bottom:0.3rem;">WhatsApp / Phone</label>
+      <input id="wm-phone" type="tel" placeholder="Your number with country code" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:9px 11px;color:#e8e2d6;font-size:13px;outline:none;margin-bottom:0.8rem;">
+
+      <label style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#8a8070;display:block;margin-bottom:0.3rem;">Area of Concern</label>
+      <select id="wm-topic" style="width:100%;background:#111827;border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:9px 11px;color:#e8e2d6;font-size:13px;outline:none;margin-bottom:0.8rem;">
+        <option value="">Select a topic...</option>
+        <option>Career &amp; Finance</option>
+        <option>Marriage &amp; Relationships</option>
+        <option>Health &amp; Wellbeing</option>
+        <option>Vastu Consultation</option>
+        <option>Karma &amp; Life Patterns</option>
+        <option>General Chart Analysis</option>
+      </select>
+
+      <label style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#8a8070;display:block;margin-bottom:0.3rem;">Brief Message (optional)</label>
+      <textarea id="wm-msg" placeholder="Describe your situation briefly..." style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:9px 11px;color:#e8e2d6;font-size:13px;outline:none;min-height:70px;resize:vertical;margin-bottom:1.2rem;"></textarea>
+
+      <button onclick="submitWmConsult()" style="width:100%;background:#c9a84c;color:#0a0f1e;border:none;padding:11px;border-radius:4px;font-size:13px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;">Send via WhatsApp to Prof. Vatsyayana Sharma ✦</button>
+    </div>
+    <div id="wm-modal-success" style="display:none;text-align:center;padding:1rem 0;">
+      <div style="font-size:2rem;color:#c9a84c;margin-bottom:0.75rem;">✦</div>
+      <p id="wm-success-msg" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;color:#e8c97a;margin-bottom:0.4rem;">Request sent!</p>
+      <small style="color:#8a8070;font-size:0.82rem;">Prof. Vatsyayana Sharma will respond within 24 hours.</small>
+    </div>
+  </div>
+</div>
+
+<style>
+.map-pill {
+  background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.18);
+  color: #c9a84c; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.map-pill:hover, .map-pill.active {
+  background: rgba(201,168,76,0.18); border-color: #c9a84c;
+}
+.wm-city-dot { cursor: pointer; }
+.wm-city-dot:hover circle.wm-main { transform-origin: center; }
+</style>
+
+<script>
+(function() {
+  const wmCities = [
+    {id:'jaipur', name:'Jaipur (HQ)', country:'India', x:641, y:168, isHQ:true},
+    {id:'delhi', name:'New Delhi', country:'India', x:634, y:151},
+    {id:'mumbai', name:'Mumbai', country:'India', x:619, y:180},
+    {id:'bangalore', name:'Bangalore', country:'India', x:631, y:197},
+    {id:'hyderabad', name:'Hyderabad', country:'India', x:634, y:188},
+    {id:'chennai', name:'Chennai', country:'India', x:638, y:203},
+    {id:'sydney', name:'Sydney', country:'Australia', x:838, y:368},
+    {id:'melbourne', name:'Melbourne', country:'Australia', x:828, y:379},
+    {id:'perth', name:'Perth', country:'Australia', x:768, y:355},
+    {id:'brisbane', name:'Brisbane', country:'Australia', x:851, y:352},
+    {id:'dubai', name:'Dubai', country:'UAE', x:552, y:149},
+    {id:'abudhabi', name:'Abu Dhabi', country:'UAE', x:547, y:155},
+    {id:'sharjah', name:'Sharjah', country:'UAE', x:556, y:145},
+    {id:'newyork', name:'New York', country:'USA', x:186, y:119},
+    {id:'losangeles', name:'Los Angeles', country:'USA', x:116, y:133},
+    {id:'chicago', name:'Chicago', country:'USA', x:171, y:110},
+    {id:'houston', name:'Houston', country:'USA', x:155, y:144},
+    {id:'miami', name:'Miami', country:'USA', x:178, y:152},
+    {id:'london', name:'London', country:'UK', x:416, y:74},
+    {id:'manchester', name:'Manchester', country:'UK', x:411, y:68},
+    {id:'toronto', name:'Toronto', country:'Canada', x:188, y:103},
+    {id:'vancouver', name:'Vancouver', country:'Canada', x:119, y:96},
+    {id:'calgary', name:'Calgary', country:'Canada', x:133, y:90},
+    {id:'auckland', name:'Auckland', country:'New Zealand', x:892, y:374},
+    {id:'wellington', name:'Wellington', country:'New Zealand', x:897, y:383},
+    {id:'singapore', name:'Singapore', country:'Singapore', x:744, y:207},
+  ];
+
+  let wmActiveCity = null;
+  let wmFilter = 'all';
+  const wmTooltip = document.getElementById('wm-tooltip');
+  const wmContainer = document.getElementById('wm-container');
+
+  function buildMap() {
+    buildLines();
+    buildDots();
+  }
+
+  function buildLines() {
+    const g = document.getElementById('wm-lines');
+    g.innerHTML = '';
+    const hq = wmCities.find(c => c.isHQ);
+    const shown = wmFilter === 'all' ? wmCities.filter(c=>!c.isHQ) : wmCities.filter(c=>c.country===wmFilter && !c.isHQ);
+    shown.forEach(c => {
+      const el = document.createElementNS('http://www.w3.org/2000/svg','line');
+      el.setAttribute('x1',hq.x); el.setAttribute('y1',hq.y);
+      el.setAttribute('x2',c.x); el.setAttribute('y2',c.y);
+      el.setAttribute('stroke','rgba(201,168,76,0.1)'); el.setAttribute('stroke-width','0.8');
+      el.setAttribute('stroke-dasharray','4,6');
+      g.appendChild(el);
+    });
+  }
+
+  function buildDots() {
+    const g = document.getElementById('wm-cities');
+    g.innerHTML = '';
+    wmCities.forEach(c => {
+      const vis = wmFilter === 'all' || c.country === wmFilter;
+      const grp = document.createElementNS('http://www.w3.org/2000/svg','g');
+      grp.setAttribute('class','wm-city-dot');
+      grp.style.opacity = vis ? '1' : (c.isHQ ? '1' : '0.15');
+
+      if (c.isHQ) {
+        const bg = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        bg.setAttribute('cx',c.x); bg.setAttribute('cy',c.y); bg.setAttribute('r','9');
+        bg.setAttribute('fill','rgba(201,168,76,0.15)'); bg.setAttribute('stroke','#c9a84c'); bg.setAttribute('stroke-width','1.5');
+        const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        dot.setAttribute('cx',c.x); dot.setAttribute('cy',c.y); dot.setAttribute('r','5');
+        dot.setAttribute('fill','#c9a84c');
+        const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+        lbl.setAttribute('x',c.x+12); lbl.setAttribute('y',c.y+4);
+        lbl.setAttribute('fill','#c9a84c'); lbl.setAttribute('font-size','9');
+        lbl.setAttribute('font-family','sans-serif'); lbl.setAttribute('font-weight','700');
+        lbl.textContent = c.name;
+        grp.appendChild(bg); grp.appendChild(dot); grp.appendChild(lbl);
+      } else {
+        const pulse = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        pulse.setAttribute('cx',c.x); pulse.setAttribute('cy',c.y); pulse.setAttribute('r','5');
+        pulse.setAttribute('fill','rgba(201,168,76,0.25)');
+        if (vis) {
+          const anim = document.createElementNS('http://www.w3.org/2000/svg','animate');
+          anim.setAttribute('attributeName','r'); anim.setAttribute('values','4;7;4');
+          anim.setAttribute('dur', (1.5 + Math.random()).toFixed(1)+'s'); anim.setAttribute('repeatCount','indefinite');
+          pulse.appendChild(anim);
+          const anim2 = document.createElementNS('http://www.w3.org/2000/svg','animate');
+          anim2.setAttribute('attributeName','opacity'); anim2.setAttribute('values','0.6;0.2;0.6');
+          anim2.setAttribute('dur', (1.5 + Math.random()).toFixed(1)+'s'); anim2.setAttribute('repeatCount','indefinite');
+          pulse.appendChild(anim2);
+        }
+        const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        dot.setAttribute('class','wm-main'); dot.setAttribute('cx',c.x); dot.setAttribute('cy',c.y);
+        dot.setAttribute('r','4'); dot.setAttribute('fill','#c9a84c');
+        dot.setAttribute('stroke','#0a0f1e'); dot.setAttribute('stroke-width','1');
+        const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+        lbl.setAttribute('x',c.x+6); lbl.setAttribute('y',c.y+3);
+        lbl.setAttribute('fill','#c9a84c'); lbl.setAttribute('font-size','8');
+        lbl.setAttribute('font-family','sans-serif');
+        lbl.textContent = c.name.replace(' (HQ)','');
+        grp.appendChild(pulse); grp.appendChild(dot); grp.appendChild(lbl);
+      }
+
+      grp.addEventListener('mouseenter', e => showWmTip(e, c));
+      grp.addEventListener('mousemove', e => moveWmTip(e));
+      grp.addEventListener('mouseleave', () => { wmTooltip.style.opacity='0'; });
+      grp.addEventListener('click', e => { wmActiveCity = c; showWmTip(e, c); });
+      g.appendChild(grp);
+    });
+  }
+
+  function showWmTip(e, city) {
+    wmActiveCity = city;
+    document.getElementById('wm-tt-city').textContent = city.name;
+    document.getElementById('wm-tt-country').textContent = city.country;
+    wmTooltip.style.opacity = '1';
+    moveWmTip(e);
+  }
+
+  function moveWmTip(e) {
+    const rect = wmContainer.getBoundingClientRect();
+    let x = e.clientX - rect.left + 14;
+    let y = e.clientY - rect.top + 14;
+    if (x + 200 > rect.width) x = e.clientX - rect.left - 200;
+    if (y + 120 > rect.height) y = e.clientY - rect.top - 120;
+    wmTooltip.style.left = x + 'px';
+    wmTooltip.style.top = y + 'px';
+  }
+
+  window.filterCountry = function(el, country) {
+    wmFilter = country;
+    document.querySelectorAll('.map-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    buildMap();
+  };
+
+  window.openWmModal = function() {
+    if (!wmActiveCity) return;
+    document.getElementById('wm-modal-title').textContent = 'Consultation from ' + wmActiveCity.name;
+    document.getElementById('wm-modal-sub').textContent = wmActiveCity.country + '  ·  Online via WhatsApp / Video Call';
+    document.getElementById('wm-modal-form').style.display = 'block';
+    document.getElementById('wm-modal-success').style.display = 'none';
+    document.getElementById('wm-modal').style.display = 'flex';
+  };
+
+  window.closeWmModal = function() {
+    document.getElementById('wm-modal').style.display = 'none';
+  };
+
+  window.submitWmConsult = function() {
+    const name = document.getElementById('wm-name').value.trim();
+    if (!name) { document.getElementById('wm-name').focus(); return; }
+    const city = wmActiveCity ? wmActiveCity.name : '';
+    const country = wmActiveCity ? wmActiveCity.country : '';
+    const phone = document.getElementById('wm-phone').value;
+    const topic = document.getElementById('wm-topic').value || 'General';
+    const msg = document.getElementById('wm-msg').value;
+    const text = 'Hello Prof. Vatsyayana Sharma,\n\nI am requesting an online consultation.\n\nFrom: ' + city + ', ' + country + '\nName: ' + name + '\nPhone: ' + phone + '\nTopic: ' + topic + (msg ? '\nMessage: ' + msg : '') + '\n\nPlease confirm a suitable time. Thank you.';
+    const waUrl = 'https://wa.me/919672222171?text=' + encodeURIComponent(text);
+    document.getElementById('wm-modal-form').style.display = 'none';
+    document.getElementById('wm-success-msg').textContent = 'Request sent from ' + city + '!';
+    document.getElementById('wm-modal-success').style.display = 'block';
+    setTimeout(() => { window.open(waUrl, '_blank'); }, 500);
+  };
+
+  document.getElementById('wm-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeWmModal();
+  });
+
+  buildMap();
+})();
+</script>
+
 <!-- CONTACT -->
 <section id="contact" style="padding: 6rem 5%;">
   <div class="contact-inner" style="max-width: 1100px; margin: 0 auto;">
@@ -1808,7 +2157,7 @@
           <span class="contact-ic">✉️</span>
           <div>
             <p class="contact-label">Email</p>
-            <p class="contact-val"><a href="mailto:hello@destinydecoded.com">hello@destinydecoded.com</a></p>
+            <p class="contact-val"><a href="mailto:astro_vatsyayana@yahoo.com">astro_vatsyayana@yahoo.com</a></p>
           </div>
         </div>
         <div class="contact-item">
